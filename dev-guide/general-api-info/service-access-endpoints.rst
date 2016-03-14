@@ -4,30 +4,26 @@
 Service access
 ========================
 
-The Cloud Big Data service is a regionalized service. The user of the service is therefore 
-responsible for appropriate replication, caching, and overall maintenance of Cloud Big Data 
-data across regional boundaries to other Cloud Servers.
+The |product name| service is a regionalized service. he user of the service is therefore responsible for selecting the appropriate regional endpoint to ensure access to servers, networks, or other Cloud services.
 
-The endpoints to use for your Cloud Big Data API calls are summarized in the following table.
+The endpoints to use for your |product name| API operations are summarized in the following table.
 
-To help you decide which regionalized endpoint to use, read `About regions`_ about special 
-considerations for choosing a data center.
+To help you decide which regionalized endpoint to use, read about :how-to:`special considerations for 
+choosing a data center<about-regions>`. 
 
 **Regionalized service endpoints**
 
 +-------------------------+---------------------------------------------------------------------+
 |         Region          |                                Endpoint                             |
 +=========================+=====================================================================+
-| Chicago (ORD)           | ``https://ord.bigdata.api.rackspacecloud.com/v2/yourAccountID/``    |
+| Chicago (ORD)           | ``Insert endpoiint for your `` |product name|                       |
 +-------------------------+---------------------------------------------------------------------+
-| Dallas/Ft. Worth (DFW)  | ``https://dfw.bigdata.api.rackspacecloud.com/v2/yourAccountID/``    |
+| Dallas/Ft. Worth (DFW)  | ```Insert endpoiint for your `` |product name|                      |
 +-------------------------+---------------------------------------------------------------------+
-| Northern Virginia (IAD) | ``https://iad.bigdata.api.rackspacecloud.com/v2/yourAccountID/``    |
+| Northern Virginia (IAD) | ``Insert endpoiint for your `` |product name|                       |
 +-------------------------+---------------------------------------------------------------------+
-| London (LON)            | ``https://lon.bigdata.api.rackspacecloud.com/v2/yourAccountID/``    |
+| London (LON)            |``Insert endpoiint for your `` |product name|                        |
 +-------------------------+---------------------------------------------------------------------+
 
 Replace the ``yourAccountID`` placeholder with your actual account number, which is returned as 
 part of the authentication service response, after the final **/** in the ``publicURL`` field.
-
-.. _About regions: http://www.rackspace.com/knowledge_center/article/about-regions
