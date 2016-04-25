@@ -172,6 +172,9 @@ The following table shows the possible response codes for this operation.
    :widths: 15 10 30
    :header-rows: 1
 
+   * - Code
+     - Name
+     - Description
    * - 200
      - Success
      - The request succeeded.
