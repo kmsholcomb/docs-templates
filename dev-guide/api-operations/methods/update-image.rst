@@ -36,13 +36,13 @@ The following table shows the body parameters for the request.
    * - Name
      - Type
      - Description
-   * - op
+   * - **op**
      - String
-     - *(Required)* The operation to be executed: ``add``, ``remove``, or ``replace``. For more information about updating image properties, see Update image properties.
-   * - path
+     - *(Required)* The operation to be executed: ``add``, ``remove``, or ``replace``. For more information about updating image properties, see `Update image properties`_.
+   * - **path**
      - String
      - *(Required)* The location within the image where the operation is to be performed.
-   * - value
+   * - **value**
      - String
      - The actual value to be added or replaced. This parameter is not required for the ``remove`` operation.
 
@@ -109,37 +109,37 @@ The following table shows the body parameters for the response.
    * - Name
      - Type
      - Description
-   * - id
+   * - **id**
      - String
      - The UUID of the image.
-   * - name
+   * - **name**
      - String
      - The name of the image.
-   * - status
+   * - **status**
      - String
      - The status of the image. For possible image statuses, see Image statuses.
-   * - visibility
+   * - **visibility**
      - String
      - Specifies image visibility as ``public``, ``private``, or ``shared``.
-   * - checksum
+   * - **checksum**
      - String
      - The checksum of the image.
-   * - minRam
+   * - **minRam**
      - String
      - The minimum server RAM required for this image.
-   * - minDisk
+   * - **minDisk**
      - String
      - The minimum server disk size required for this image.
-   * - tags[ ]
+   * - **tags[ ]**
      - Array
      - An array of user-defined image tags.
-   * - created
+   * - **created**
      - String
      - The date and time that the image was created.
-   * - updated
+   * - **updated**
      - String
      - The date and time that the image was updated.
-   * - schema
+   * - **schema**
      - String
      - The schema of the image.
 
