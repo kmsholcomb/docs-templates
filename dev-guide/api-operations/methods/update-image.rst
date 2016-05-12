@@ -5,7 +5,7 @@ Update an image
 
 .. code::
 
-    PATCH /images/{image_id}
+    PATCH /v1.0/images/{imageId}
 
 This operation updates the specified image. You can update an image that you own. 
 
@@ -23,9 +23,9 @@ The following table shows the URI parameter for the request.
    * - Name
      - Type
      - Description
-   * - {image_id}
+   * - {imageId}
      - UUID
-     - Image ID stored through the Images API, typically a UUID.
+     - The image ID stored through the Images API, typically a UUID.
 
 The following table shows the body parameters for the request.
 
