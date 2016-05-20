@@ -11,6 +11,28 @@ This operation updates the specified image. You can update an image that you own
 
 You can use the HTTP PATCH method to update certain standard properties, and to add, update, or remove custom, user-defined image properties. For more information, see HTTP PATCH method. 
 
+Following are some guidelines for updating custom, user-defined properties.
+
+- You can add custom properties to your image. We recommend that you name a custom property by prefixing your domain or name. You may not use ``com.rackspace`` as the prefix. For example, ``com.mycompany.myproperty`` and ``myname.myproperty`` are valid, but ``com.rackspace.myproperty`` is not allowed. Do not use the prefix ``org.openstack`` because OpenStack might add a property with the same name.
+
+- You can delete any custom property that you previously added to your image.
+
+- You can update any custom properties that you previously added to an image that you own, and you can update the following standard properties:
+
+  - ``name``
+  - ``tags``
+  - ``os_distro``
+  - ``os_version``
+  - ``protected``
+  - ``container_format`` (Changing this value might render your image unusable.)
+  - ``disk_format`` (Changing this value might render your image unusable.)
+  - ``min_disk`` (Changing this value affects what flavors you can use with the image.)
+  - ``min_ram`` (Changing this value affects what flavors you can use with the image.)
+  - ``ramdisk_id`` (Applies only when ``disk_format`` has a value of ``ami``.)
+  - ``kernel_id`` (Applies only when ``disk_format`` has a value of ``ami``.)
+
+- In general, you can update any properties that you own, but do not expect to be able to update anyone else's properties. For example, you can't update any properties starting with ``com.rackspace``, and you might not be able to update some properties starting with ``org.openstack``.
+
 Request parameters
 ~~~~~~~~~~~~~~~~~~
 
@@ -23,7 +45,7 @@ The following table shows the URI parameter for the request.
    * - Name
      - Type
      - Description
-   * - {imageId}
+   * - imageId
      - UUID
      - The image ID stored through the Images API, typically a UUID.
 
@@ -38,7 +60,7 @@ The following table shows the body parameters for the request.
      - Description
    * - **op**
      - String
-     - *(Required)* The operation to be executed: ``add``, ``remove``, or ``replace``. For more information about updating image properties, see `Update image properties`_.
+     - *(Required)* The operation to be executed: ``add``, ``remove``, or ``replace``. For more information about updating image properties, see the beginning of this operation section.
    * - **path**
      - String
      - *(Required)* The location within the image where the operation is to be performed.
@@ -48,45 +70,15 @@ The following table shows the body parameters for the request.
 
 The request body must conform to the ``application/openstack-images-v2.1-json-patch`` media type.
 
-Update image properties
-~~~~~~~~~~~~~~~~~~~~~~~
-
-Following are some guidelines for updating custom, user-defined properties.
-
-Add properties
-^^^^^^^^^^^^^^
-
-You can add custom properties to your image. We recommend that you name a custom property by prefixing your domain or name. You may not use ``com.rackspace`` as the prefix. For example, ``com.mycompany.myproperty`` and ``myname.myproperty`` are valid, but ``com.rackspace.myproperty`` is not allowed.
-
-Do not use the prefix ``org.openstack`` because OpenStack might add a property with the same name.
-
-Remove properties
-^^^^^^^^^^^^^^^^^
-
-You can delete any custom property that you previously added to your image.
-
-Replace properties
-^^^^^^^^^^^^^^^^^^
-
-You can update any custom properties that you previously added to an image that you own, and you can update the following standard properties:
-
-- ``name``
-- ``tags``
-- ``os_distro``
-- ``os_version``
-- ``protected``
-- ``container_format`` (Changing this value might render your image unusable.)
-- ``disk_format`` (Changing this value might render your image unusable.)
-- ``min_disk`` (Changing this value affects what flavors you can use with the image.)
-- ``min_ram`` (Changing this value affects what flavors you can use with the image.)
-- ``ramdisk_id`` (Applies only when ``disk_format`` has a value of ``ami``.)
-- ``kernel_id`` (Applies only when ``disk_format`` has a value of ``ami``.)
-
-In general, you can update any properties that you own, but do not expect to be able to update anyone else's properties. For example, you can't update any properties starting with ``com.rackspace``, and you might not be able to update some properties starting with ``org.openstack``.
-
 Request example
 ~~~~~~~~~~~~~~~
 The following example updates two properties for the image: ``name`` and ``tags``. 
+
+.. code::
+
+    X-Auth-Token: f064c46a782c444cb4ba4b6434288f7c
+    Content-Type: application/json
+    Accept: application/json
 
 .. code::
 
@@ -133,10 +125,10 @@ The following table shows the body parameters for the response.
    * - **tags[ ]**
      - Array
      - An array of user-defined image tags.
-   * - **created**
+   * - **created_at**
      - String
      - The date and time that the image was created.
-   * - **updated**
+   * - **updated_at**
      - String
      - The date and time that the image was updated.
    * - **schema**
